@@ -12,12 +12,14 @@ class ToDoListUITests: BaseTest  {
     
     func testAppLaunch() {
 
-        HomePage().VerifyOnPage()
+        HomePage()
+            .VerifyOnPage()
     }
     
     func testAddNoteAndConfirm() {
         
-        HomePage().selectAddNote()
+        HomePage()
+            .selectAddNote()
      
         AddNotePage()
             .addNote(textValue: "Get Milk")

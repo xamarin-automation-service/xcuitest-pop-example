@@ -13,7 +13,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     var data:[String] = []
     var selectedRow:Int = -1
     var newRowText:String = ""
-    var file:String!
+//    var file:String!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,8 +25,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         self.navigationItem.leftBarButtonItem = editButtonItem
         editButtonItem.accessibilityLabel = "editButton"
         
-        let docsDir = NSSearchPathForDirectoriesInDomains(.documentDirectory, .allDomainsMask, true)
-        file = docsDir[0].appending("notes.txt")
+//        let docsDir = NSSearchPathForDirectoriesInDomains(.documentDirectory, .allDomainsMask, true)
+//        file = docsDir[0].appending("notes.txt")
         load()
     }
 
@@ -97,28 +97,28 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     func save()
     {
         //userDefaults for saving data
-//        UserDefaults.standard.set(data, forKey: "notes")
-//        UserDefaults.standard.synchronize()
+        UserDefaults.standard.set(data, forKey: "notes")
+        UserDefaults.standard.synchronize()
 //
         
         //using file
-        let newData: NSArray = NSArray(array: data)
-        newData.write(toFile: file, atomically: true)
+//        let newData: NSArray = NSArray(array: data)
+//        newData.write(toFile: file, atomically: true)
     }
     
     func load()
     {
-        //userdefaults for loading data
-//        if let loadedData = UserDefaults.standard.value(forKey: "notes") as? [String] {
-//            data = loadedData
-//            table.reloadData()
-//        }
+//        userdefaults for loading data
+        if let loadedData = UserDefaults.standard.value(forKey: "notes") as? [String] {
+            data = loadedData
+            table.reloadData()
+        }
         
         //use file
-        if let loadedData = NSArray(contentsOfFile:file) as? [String] {
-                data = loadedData
-                table.reloadData()
-             }
+//        if let loadedData = NSArray(contentsOfFile:file) as? [String] {
+//                data = loadedData
+//                table.reloadData()
+//             }
     }
     
     override func didReceiveMemoryWarning() {

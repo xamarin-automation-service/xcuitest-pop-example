@@ -2,6 +2,9 @@
 build/
 DerivedData/
 
+##testcloud upload generated
+ddp/
+
 ## Various settings
 *.pbxuser
 !default.pbxuser

@@ -7,6 +7,7 @@
 //
 
 import XCTest
+import VSMobileCenterExtensions
 
 class BaseTest : XCTestCase {
     
