@@ -33,7 +33,7 @@ class ToDoListUITests: BaseTest  {
 
         HomePage()
             .enterEditMode()
-            .deleteRow(rowNumber: 0)
+            .deleteRow(deleteValue: "Get Milk")
             .exitEditMode()
     }
 }

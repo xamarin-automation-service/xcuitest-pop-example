@@ -8,51 +8,58 @@
 import XCTest
 import VSMobileCenterExtensions
 
-class HomePage : BaseTest {
- 
+class HomePage : BasePage {
+    
     //queries
+    var notesTitle : XCUIElement?
+    var addButton : XCUIElement?
+    var editButton : XCUIElement?
+    var deleteButton : XCUIElement?
+    func noteAdded(_str: String) -> XCUIElement { return app.tables.staticTexts[_str] }
+    func tablesQuery(_str: String) -> XCUIElement { return app.tables.cells.element(boundBy: 0).buttons["Delete " + _str]}
+    
+    override init() {
+        super.init()
+        
+        notesTitle = app.navigationBars["Notes"].staticTexts["Notes"]
+        addButton = app.navigationBars["Notes"].buttons["addButton"]
+        editButton = app.buttons["editButton"]
+        deleteButton = app.tables.buttons["Delete"]
+    }
+    
     
     //page methods
     func VerifyOnPage() {
-        
-        let notesTitle = app.navigationBars["Notes"].staticTexts["Notes"]
-        XCTAssertEqual(notesTitle.exists, true)
-        
+
+        XCTAssertEqual(notesTitle?.exists, true)
         MCLabel.labelStep("Verified on Home Page")
     }
     
     func selectAddNote() {
-        
-        let addButton = app.navigationBars["Notes"].buttons["addButton"]
+
         MCLabel.labelStep("Tapping on Add Button")
-        addButton.tap()
+        addButton?.tap()
         
     }
     
     func verifyNote(noteValue : String) {
         
-        let noteAdded = app.tables.staticTexts[noteValue]
-        waitForElement(of: noteAdded, timeout: 3)
+        waitForElement(of: (noteAdded(_str: noteValue)), timeout: 3)
         MCLabel.labelStep("Note with \(noteValue) added")
     }
     
-    func enterEditMode() -> Self {
+    func enterEditMode() -> HomePage {
         
-        let editButton = app.buttons["editButton"]
         MCLabel.labelStep("Entering Edit Mode")
-        editButton.tap()
+        editButton?.tap()
         
         return self
     }
     
-    func deleteRow(rowNumber : UInt) -> Self {
-        
-        let tablesQuery = app.tables
-        tablesQuery.children(matching: .cell).matching(identifier: "cellRow").element(boundBy: 0).buttons["Delete Get Milk"].tap()
-        
-        let deleteButton = tablesQuery.buttons["Delete"]
-        deleteButton.tap()
-        
+    func deleteRow(deleteValue : String) -> HomePage {
+
+        tablesQuery(_str: deleteValue).tap()
+        deleteButton?.tap()
         MCLabel.labelStep("Row Deleted")
         
         return self
@@ -60,8 +67,7 @@ class HomePage : BaseTest {
     
     func exitEditMode() {
         
-        let editButton = app.navigationBars["Notes"].buttons["editButton"]
-        editButton.tap()
+        editButton?.tap()
         MCLabel.labelStep("Exited Edit mode")
 
     }

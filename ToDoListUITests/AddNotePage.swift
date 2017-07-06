@@ -8,28 +8,39 @@
 import XCTest
 import VSMobileCenterExtensions
 
-class AddNotePage : BaseTest {
+class AddNotePage : BasePage {
     
     //queries
+    var textView : XCUIElement?
+    var backButton : XCUIElement?
     
+    override init() {
+        super.init()
+        
+        //using textViews class and index 0
+        //textView = app.textViews.element(boundBy: 0)
+        
+        //using accessibilityID aka marked
+        textView = app.textViews.matching(identifier: "noteContentTextBox").element
+        backButton = app.navigationBars["Note"].buttons["Notes"]
+        
+    }
     
     
     //page methods
     func addNote( textValue : String) -> Self {
-        
-        let textView = app.otherElements.containing(.navigationBar, identifier:"Note").children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .textView).element
-        textView.typeText(textValue)
-        
+    
+        textView?.typeText(textValue)
         MCLabel.labelStep("Text entered : \(textValue)")
         
         return self
     }
+
     
     func saveNote(){
         
-        let backButton = app.navigationBars["Note"].buttons["Notes"]
         MCLabel.labelStep("Saving note")
-        backButton.tap()
+        backButton?.tap()
     }
     
 }

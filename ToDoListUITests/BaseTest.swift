@@ -11,7 +11,7 @@ import VSMobileCenterExtensions
 
 class BaseTest : XCTestCase {
     
-    let app = XCUIApplication()
+    var app = XCUIApplication()
     
     override func setUp() {
         super.setUp()
@@ -21,10 +21,15 @@ class BaseTest : XCTestCase {
     
     override func tearDown() {
         super.tearDown()
+        app.terminate()
+    }
+    
+    func getAppDriver() -> XCUIApplication {
+        return app
     }
     
     //waitForElement
-    func waitForElement(of element: XCUIElement, file: String = #file, line : UInt = #line, timeout: Double = 5) {
+    func waitFor(of element: XCUIElement,  timeout: Double = 5, file: String = #file, line : UInt = #line) {
         
         let predicate = NSPredicate(format: "exists == true")
         expectation(for: predicate, evaluatedWith: element, handler: nil)

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		178CD65A6FBB2FDA7B38CCFB /* Pods_ToDoList.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F3B2375F38545290F054BD7 /* Pods_ToDoList.framework */; };
+		902735231F0EB10A00CF5DAB /* BasePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 902735221F0EB10A00CF5DAB /* BasePage.swift */; };
 		903D06F01F05782900384426 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 903D06EF1F05782900384426 /* AppDelegate.swift */; };
 		903D06F21F05782900384426 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 903D06F11F05782900384426 /* ViewController.swift */; };
 		903D06F51F05782900384426 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 903D06F31F05782900384426 /* Main.storyboard */; };
@@ -18,7 +19,6 @@
 		9058FA271F05D972006979EC /* HomePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9058FA251F05D84A006979EC /* HomePage.swift */; };
 		9058FA2A1F05DE56006979EC /* AddNotePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9058FA291F05DE56006979EC /* AddNotePage.swift */; };
 		90A67E041F0581FE00158C9C /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A67E031F0581FE00158C9C /* DetailViewController.swift */; };
-		90C21E981F06E90A00E98ECD /* VSMobileCenterExtensions.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90C21E971F06E90A00E98ECD /* VSMobileCenterExtensions.framework */; };
 		BDDE84E3BD1A631261635DFA /* Pods_ToDoListUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73E6DB5548E7193A724F0E47 /* Pods_ToDoListUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -39,6 +39,7 @@
 		73E6DB5548E7193A724F0E47 /* Pods_ToDoListUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ToDoListUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		88229AF43EA811A56810E2DD /* Pods-ToDoList.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ToDoList.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ToDoList/Pods-ToDoList.debug.xcconfig"; sourceTree = "<group>"; };
 		8B427E352EB98C00CB2B7B80 /* Pods-ToDoListUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ToDoListUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ToDoListUITests/Pods-ToDoListUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		902735221F0EB10A00CF5DAB /* BasePage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasePage.swift; sourceTree = "<group>"; };
 		903D06EC1F05782900384426 /* ToDoList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToDoList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		903D06EF1F05782900384426 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		903D06F11F05782900384426 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -46,16 +47,14 @@
 		903D06F61F05782900384426 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		903D06F91F05782900384426 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		903D06FB1F05782900384426 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9056D0C71F06E120003CC00D /* VSMobileCenterExtensions.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VSMobileCenterExtensions.framework; path = "Pods/../build/Debug-iphoneos/VSMobileCenterExtensions/VSMobileCenterExtensions.framework"; sourceTree = "<group>"; };
 		9058FA251F05D84A006979EC /* HomePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePage.swift; sourceTree = "<group>"; };
 		9058FA291F05DE56006979EC /* AddNotePage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddNotePage.swift; sourceTree = "<group>"; };
+		908B08761F0D964600D9FE7E /* VSMobileCenterExtensions.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VSMobileCenterExtensions.framework; path = "Pods/../build/Debug-iphoneos/VSMobileCenterExtensions/VSMobileCenterExtensions.framework"; sourceTree = "<group>"; };
 		90A67E031F0581FE00158C9C /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		90A67E091F05A99600158C9C /* ToDoListUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ToDoListUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		90A67E0B1F05A99600158C9C /* ToDoListUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoListUITests.swift; sourceTree = "<group>"; };
 		90A67E0D1F05A99600158C9C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		90C21E971F06E90A00E98ECD /* VSMobileCenterExtensions.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VSMobileCenterExtensions.framework; path = "Pods/../build/Debug-iphoneos/VSMobileCenterExtensions/VSMobileCenterExtensions.framework"; sourceTree = "<group>"; };
 		90C4C3B01F05CE45005664EF /* BaseTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTest.swift; sourceTree = "<group>"; };
-		90E47B1A1F06E618007C595E /* VSMobileCenterExtensions.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VSMobileCenterExtensions.framework; path = "Pods/../build/Debug-iphoneos/VSMobileCenterExtensions/VSMobileCenterExtensions.framework"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,7 +70,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				90C21E981F06E90A00E98ECD /* VSMobileCenterExtensions.framework in Frameworks */,
 				BDDE84E3BD1A631261635DFA /* Pods_ToDoListUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -134,6 +132,7 @@
 			isa = PBXGroup;
 			children = (
 				90C4C3B01F05CE45005664EF /* BaseTest.swift */,
+				902735221F0EB10A00CF5DAB /* BasePage.swift */,
 				9058FA231F05D7E9006979EC /* Tests */,
 				9058FA261F05D8B1006979EC /* Pages */,
 				90A67E0D1F05A99600158C9C /* Info.plist */,
@@ -144,9 +143,7 @@
 		A6F2474DCB929AD335112C0B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				90C21E971F06E90A00E98ECD /* VSMobileCenterExtensions.framework */,
-				90E47B1A1F06E618007C595E /* VSMobileCenterExtensions.framework */,
-				9056D0C71F06E120003CC00D /* VSMobileCenterExtensions.framework */,
+				908B08761F0D964600D9FE7E /* VSMobileCenterExtensions.framework */,
 				5F3B2375F38545290F054BD7 /* Pods_ToDoList.framework */,
 				73E6DB5548E7193A724F0E47 /* Pods_ToDoListUITests.framework */,
 			);
@@ -382,6 +379,7 @@
 				9058FA271F05D972006979EC /* HomePage.swift in Sources */,
 				9058FA211F05D6A4006979EC /* ToDoListUITests.swift in Sources */,
 				9058FA221F05D74D006979EC /* BaseTest.swift in Sources */,
+				902735231F0EB10A00CF5DAB /* BasePage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
