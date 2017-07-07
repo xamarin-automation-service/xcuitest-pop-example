@@ -13,7 +13,6 @@ import CoreFoundation
 class BasePage {
     
     var app : XCUIApplication
-    var traitD : XCUIElement?
     
     init(trait: XCUIElement) {
         
