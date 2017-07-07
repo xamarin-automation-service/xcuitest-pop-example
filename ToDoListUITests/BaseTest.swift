@@ -27,22 +27,4 @@ class BaseTest : XCTestCase {
     func getAppDriver() -> XCUIApplication {
         return app
     }
-    
-    //waitForElement
-    func waitFor(of element: XCUIElement,  timeout: Double = 5, file: String = #file, line : UInt = #line) {
-        
-        let predicate = NSPredicate(format: "exists == true")
-        expectation(for: predicate, evaluatedWith: element, handler: nil)
-        
-        waitForExpectations(timeout: timeout) { (error) in
-            guard error != nil else {return}
-            
-            let description = "\(element) does not exist after \(timeout) seconds."
-            self.recordFailure(withDescription: description, inFile: file, atLine: line, expected: true)
-            print(element.debugDescription)
-            
-        }
-        
-    }
-    
 }
