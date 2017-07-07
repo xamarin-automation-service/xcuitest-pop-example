@@ -15,12 +15,12 @@ class AddNotePage : BasePage {
     var backButton : XCUIElement?
     
     init() {
-        super.init(trait: XCUIApplication().navigationBars["Note"].buttons["Notes"], page : "AddNotePage")
+        super.init(trait: XCUIApplication().navigationBars["Note"].buttons["Notes"])
         
         //using textViews class and index 0
         //textView = app.textViews.element(boundBy: 0)
         
-        //using accessibilityID aka marked
+        //using accessibilityID aka ID
         textView = app.textViews.matching(identifier: "noteContentTextBox").element
         backButton = app.navigationBars["Note"].buttons["Notes"]
         

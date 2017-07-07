@@ -8,15 +8,17 @@
 
 import XCTest
 import VSMobileCenterExtensions
+import CoreFoundation
 
 class BasePage {
     
     var app : XCUIApplication
+    var traitD : XCUIElement?
     
-    init(trait: XCUIElement, page : String) {
-        app = BaseTest().getAppDriver()
+    init(trait: XCUIElement) {
         
-        assertOnPage(traitValue: trait, pageValue: page)
+        app = BaseTest().getAppDriver()
+        assertOnPage(traitValue: trait)
     }
     
     func waitForElement(of element: XCUIElement, timeout: Double) {
@@ -24,9 +26,10 @@ class BasePage {
         BaseTest().waitFor(of: element, timeout: timeout)
     }
     
-    func assertOnPage(traitValue: XCUIElement, pageValue: String) {
+    func assertOnPage(traitValue: XCUIElement) {
  
         BaseTest().waitFor(of: traitValue, timeout:10)
-        MCLabel.labelStep("On Page " + pageValue)
+        print("On Page " + String(describing: self).components(separatedBy: ".")[1])
+        MCLabel.labelStep("On Page " + String(describing: self).components(separatedBy: ".")[1])
     }
 }

@@ -19,7 +19,7 @@ class HomePage : BasePage {
     func tablesQuery(_str: String) -> XCUIElement { return app.tables.cells.element(boundBy: 0).buttons["Delete " + _str]}
     
      init() {
-        super.init(trait: XCUIApplication().navigationBars["Notes"].staticTexts["Notes"], page: "HomePage")
+        super.init(trait: XCUIApplication().navigationBars["Notes"].staticTexts["Notes"])
         
         notesTitle = app.navigationBars["Notes"].staticTexts["Notes"]
         addButton = app.navigationBars["Notes"].buttons["addButton"]
