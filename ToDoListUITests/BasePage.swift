@@ -13,8 +13,10 @@ class BasePage {
     
     var app : XCUIApplication
     
-    init() {
+    init(trait: XCUIElement, page : String) {
         app = BaseTest().getAppDriver()
+        
+        assertOnPage(traitValue: trait, pageValue: page)
     }
     
     func waitForElement(of element: XCUIElement, timeout: Double) {
@@ -22,9 +24,9 @@ class BasePage {
         BaseTest().waitFor(of: element, timeout: timeout)
     }
     
-    func assertOnPage() {
-        
-//        BaseTest().waitFor(of: traitValue, timeout:10)
-//        MCLabel.labelStep("On Page")
+    func assertOnPage(traitValue: XCUIElement, pageValue: String) {
+ 
+        BaseTest().waitFor(of: traitValue, timeout:10)
+        MCLabel.labelStep("On Page " + pageValue)
     }
 }

@@ -14,8 +14,8 @@ class AddNotePage : BasePage {
     var textView : XCUIElement?
     var backButton : XCUIElement?
     
-    override init() {
-        super.init()
+    init() {
+        super.init(trait: XCUIApplication().navigationBars["Note"].buttons["Notes"], page : "AddNotePage")
         
         //using textViews class and index 0
         //textView = app.textViews.element(boundBy: 0)
