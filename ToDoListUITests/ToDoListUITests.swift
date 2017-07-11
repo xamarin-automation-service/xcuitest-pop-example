@@ -25,7 +25,8 @@ class ToDoListUITests: BaseTest  {
             .addNote(textValue: "Get Milk")
             .saveNote()
         
-        HomePage().verifyNote(noteValue: "Get Milk")
+        HomePage()
+            .verifyNote(noteValue: "Get Milk")
         
     }
     
@@ -35,5 +36,22 @@ class ToDoListUITests: BaseTest  {
             .enterEditMode()
             .deleteRow(deleteValue: "Get Milk")
             .exitEditMode()
+    }
+    
+    func testOtherUIElements() {
+        
+        HomePage()
+            .selectAddNote()
+        
+        AddNotePage()
+            .changeSwitchState()
+            .changeSliderValue(newValue: 0.6)
+            .selectSuperHero(superheroName: "Wonder Woman")
+            .addNote(textValue: "DC Heroes")
+            .saveNote()
+        
+        HomePage()
+            .verifyNote(noteValue: "DC Heroes")
+        
     }
 }

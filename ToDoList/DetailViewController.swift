@@ -8,10 +8,17 @@
 
 import UIKit
 
-class DetailViewController: UIViewController {
+class DetailViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
     @IBOutlet weak var textView: UITextView!
+    @IBOutlet weak var pickerView: UIPickerView!
+    @IBOutlet weak var slider: UISlider!
+    @IBOutlet weak var sliderLabel: UILabel!
+    @IBOutlet weak var switchButton: UISwitch!
+    @IBOutlet weak var switchLabel: UILabel!
+    
     var text:String = ""
     var masterView:ViewController!
+    var pickerDataSource = ["Batman", "Superman", "Wonder Woman", "Aquaman", "Cyborg", "Flash", "Martian ManHunter"]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,9 +27,15 @@ class DetailViewController: UIViewController {
         textView.text = text
         
         //to make keyboard open default
-        textView.becomeFirstResponder()
+//        textView.becomeFirstResponder()
+        
+        //UIPickerView setup
+        self.pickerView.dataSource = self
+        self.pickerView.delegate = self
+        
     }
 
+    @IBOutlet weak var `switch`: UISwitch!
     func setText(t:String) {
         text = t
         if isViewLoaded {
@@ -40,15 +53,38 @@ class DetailViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    //funcs for UIPickerView
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
     }
-    */
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return pickerDataSource.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return pickerDataSource[row]
+    }
 
+    //funcs for UISlider
+    @IBAction func sliderValueChanged(_ sender: UISlider) {
+        
+        let selectedValue = Int(sender.value)
+        
+        sliderLabel.text = "\(selectedValue)"
+    }
+  
+    //funcs for UISwitch
+    @IBAction func switchValueChanged(_ sender: Any) {
+        
+        if (switchButton.isOn) {
+            switchLabel.text = "Switch is on"
+        }
+        else {
+            switchLabel.text = "Off"
+        }
+    }
+ 
+    
 }

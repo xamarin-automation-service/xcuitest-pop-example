@@ -29,7 +29,7 @@ class HomePage : BasePage {
     
     
     //page methods
-    func VerifyOnPage() {
+    func verifyOnPage() {
 
         XCTAssertEqual(notesTitle?.exists, true)
         MCLabel.labelStep("Verified on Home Page")
@@ -59,6 +59,7 @@ class HomePage : BasePage {
     func deleteRow(deleteValue : String) -> HomePage {
 
         tablesQuery(_str: deleteValue).tap()
+        MCLabel.labelStep("In Delete Mode")
         deleteButton?.tap()
         MCLabel.labelStep("Row Deleted")
         

@@ -40,7 +40,7 @@ class BasePage {
     
     func assertOnPage(traitValue: XCUIElement) {
  
-        waitForElement(of: traitValue, timeout:10)
+        XCTAssert(traitValue.exists)
         MCLabel.labelStep("On Page " + String(describing: self).components(separatedBy: ".")[1])
     }
 }

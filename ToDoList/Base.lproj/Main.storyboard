@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -72,23 +73,79 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="eJg-PC-fVb">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="334"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <accessibility key="accessibilityConfiguration" identifier="noteContentTextBox"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xoo-g8-d8r">
+                                <rect key="frame" x="205" y="347" width="51" height="31"/>
+                                <accessibility key="accessibilityConfiguration" identifier="switchButton"/>
+                                <connections>
+                                    <action selector="switchValueChanged:" destination="29w-Ut-rtk" eventType="primaryActionTriggered" id="0mI-bD-hT4"/>
+                                </connections>
+                            </switch>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="jOT-eP-eI4">
+                                <rect key="frame" x="58.5" y="393" width="302.5" height="31"/>
+                                <accessibility key="accessibilityConfiguration" identifier="slider"/>
+                                <connections>
+                                    <action selector="sliderValueChanged:" destination="29w-Ut-rtk" eventType="valueChanged" id="KFY-Bb-frl"/>
+                                </connections>
+                            </slider>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="On " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7AK-hv-Gzd">
+                                <rect key="frame" x="16" y="352" width="27" height="21"/>
+                                <accessibility key="accessibilityConfiguration" identifier="switchLabel"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eYC-vO-D7a">
+                                <rect key="frame" x="16" y="402" width="10.5" height="21"/>
+                                <accessibility key="accessibilityConfiguration" identifier="sliderLabel"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mFL-98-njx">
+                                <rect key="frame" x="0.0" y="494" width="375" height="173"/>
+                                <accessibility key="accessibilityConfiguration" identifier="pickerView"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="173" id="B3v-DJ-S74"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="dataSource" destination="95o-Jh-hWv" id="2Pk-ct-cy2"/>
+                                    <outlet property="delegate" destination="95o-Jh-hWv" id="L69-2E-o1V"/>
+                                </connections>
+                            </pickerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="eJg-PC-fVb" firstAttribute="leading" secondItem="95o-Jh-hWv" secondAttribute="leading" id="WtO-SS-dhJ"/>
-                            <constraint firstItem="eJg-PC-fVb" firstAttribute="bottom" secondItem="MwI-wY-uut" secondAttribute="top" id="aK7-hR-vlB"/>
-                            <constraint firstItem="eJg-PC-fVb" firstAttribute="top" secondItem="95o-Jh-hWv" secondAttribute="top" id="eHK-Pu-Itk"/>
-                            <constraint firstAttribute="trailing" secondItem="eJg-PC-fVb" secondAttribute="trailing" id="ej8-OI-ttV"/>
+                            <constraint firstAttribute="trailing" secondItem="mFL-98-njx" secondAttribute="trailing" id="2oS-UE-ATd"/>
+                            <constraint firstItem="jOT-eP-eI4" firstAttribute="top" secondItem="xoo-g8-d8r" secondAttribute="bottom" constant="15" id="3hn-ul-poT"/>
+                            <constraint firstItem="mFL-98-njx" firstAttribute="bottom" secondItem="MwI-wY-uut" secondAttribute="top" id="750-Kc-569"/>
+                            <constraint firstItem="7AK-hv-Gzd" firstAttribute="leading" secondItem="eYC-vO-D7a" secondAttribute="leading" id="MgQ-EM-5Ba"/>
+                            <constraint firstItem="eJg-PC-fVb" firstAttribute="top" secondItem="95o-Jh-hWv" secondAttribute="top" id="RUA-Lo-wcr"/>
+                            <constraint firstItem="eJg-PC-fVb" firstAttribute="leading" secondItem="95o-Jh-hWv" secondAttribute="leading" id="S3Q-7f-krw"/>
+                            <constraint firstItem="mFL-98-njx" firstAttribute="top" secondItem="eYC-vO-D7a" secondAttribute="bottom" constant="71" id="SKk-xM-ABD"/>
+                            <constraint firstItem="mFL-98-njx" firstAttribute="leading" secondItem="eJg-PC-fVb" secondAttribute="leading" id="TJd-fm-yMP"/>
+                            <constraint firstItem="7AK-hv-Gzd" firstAttribute="leading" secondItem="95o-Jh-hWv" secondAttribute="leadingMargin" id="Vut-gF-wXD"/>
+                            <constraint firstItem="jOT-eP-eI4" firstAttribute="trailing" secondItem="95o-Jh-hWv" secondAttribute="trailingMargin" id="c09-j5-Qr0"/>
+                            <constraint firstItem="7AK-hv-Gzd" firstAttribute="centerY" secondItem="xoo-g8-d8r" secondAttribute="centerY" id="fPc-BI-E4B"/>
+                            <constraint firstAttribute="trailing" secondItem="xoo-g8-d8r" secondAttribute="trailing" constant="121" id="jMM-OI-fQ7"/>
+                            <constraint firstItem="xoo-g8-d8r" firstAttribute="top" secondItem="eJg-PC-fVb" secondAttribute="bottom" constant="13" id="onE-ET-1Ub"/>
+                            <constraint firstItem="mFL-98-njx" firstAttribute="trailing" secondItem="eJg-PC-fVb" secondAttribute="trailing" id="sRO-Km-nW6"/>
+                            <constraint firstItem="jOT-eP-eI4" firstAttribute="leading" secondItem="eYC-vO-D7a" secondAttribute="trailing" constant="34" id="wtL-as-Ivl"/>
+                            <constraint firstItem="eYC-vO-D7a" firstAttribute="bottom" secondItem="jOT-eP-eI4" secondAttribute="bottom" id="zt8-Ja-irW"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="pickerView" destination="mFL-98-njx" id="KfI-ao-CPm"/>
+                        <outlet property="slider" destination="jOT-eP-eI4" id="X63-kz-1UY"/>
+                        <outlet property="sliderLabel" destination="eYC-vO-D7a" id="P0g-ye-sd7"/>
+                        <outlet property="switchButton" destination="xoo-g8-d8r" id="l7v-bz-cqV"/>
+                        <outlet property="switchLabel" destination="7AK-hv-Gzd" id="e7H-o9-AN6"/>
                         <outlet property="textView" destination="eJg-PC-fVb" id="WUL-Gp-pFb"/>
                     </connections>
                 </viewController>
