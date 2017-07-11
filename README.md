@@ -14,7 +14,7 @@ This project demonstrates how to use Apple's XCUITest and is based on the the [p
 1. Navigate to the folder in terminal and run `pod install`*
 1. Open the `ToDoList.xcworkspace` file using Xcode.
 1. Build
-1. Navigate to the **Test Navigator** and Run Tests 
+1. Navigate to the **Test Navigator** in Xcode and Run Tests 
 
 _*This project uses CocoaPods to manage an Extension. If you do not have the CocoaPods dependency manager installed, you can do it from [here](https://cocoapods.org/) before running the command._
 

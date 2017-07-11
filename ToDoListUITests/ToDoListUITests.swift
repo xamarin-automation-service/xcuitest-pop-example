@@ -13,7 +13,7 @@ class ToDoListUITests: BaseTest  {
     func testAppLaunch() {
 
         HomePage()
-            .VerifyOnPage()
+            .verifyOnPage()
     }
     
     func testAddNoteAndConfirm() {
