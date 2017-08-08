@@ -11,7 +11,7 @@ import VSMobileCenterExtensions
 
 class BaseTest : XCTestCase {
     
-    var app = XCUIApplication()
+    let app = XCUIApplication()
     
     override func setUp() {
         super.setUp()
@@ -22,9 +22,5 @@ class BaseTest : XCTestCase {
     override func tearDown() {
         super.tearDown()
         app.terminate()
-    }
-    
-    func getAppDriver() -> XCUIApplication {
-        return app
     }
 }

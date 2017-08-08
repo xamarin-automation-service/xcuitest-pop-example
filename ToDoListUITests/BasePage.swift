@@ -12,18 +12,19 @@ import CoreFoundation
 
 class BasePage {
     
-    var app : XCUIApplication
-    var testCase = XCTestCase()
+    let app = XCUIApplication()
+    
+    var Trait: XCUIElement! {
+        return nil
+    }
 
-    init(trait: XCUIElement) {
-        
-        app = BaseTest().getAppDriver()
-        assertOnPage(traitValue: trait)
+    init() {
+        waitForPage()
     }
     
-    //waitForElement
-    func waitForElement(of element: XCUIElement,  timeout: Double = 5, file: String = #file, line : UInt = #line) {
+    func waitForElement(_ element: XCUIElement,  timeout: Double = 5, file: String = #file, line : UInt = #line) {
         
+        let testCase = XCTestCase()
         let predicate = NSPredicate(format: "exists == true")
         testCase.expectation(for: predicate, evaluatedWith: element, handler: nil)
         
@@ -31,16 +32,21 @@ class BasePage {
             guard error != nil else {return}
             
             let description = "\(element) does not exist after \(timeout) seconds."
-            self.testCase.recordFailure(withDescription: description, inFile: file, atLine: line, expected: true)
+            testCase.recordFailure(withDescription: description, inFile: file, atLine: line, expected: true)
             print(element.debugDescription)
             
         }
         
     }
     
-    func assertOnPage(traitValue: XCUIElement) {
- 
-        XCTAssert(traitValue.exists)
-        MCLabel.labelStep("On Page " + String(describing: self).components(separatedBy: ".")[1])
+    func waitForPage() {
+        let pageName = String(describing: self).components(separatedBy: ".")[1]
+        
+        if Trait == nil {
+            fatalError("Trait not set for " + pageName)
+        }
+        
+        waitForElement(Trait)
+        MCLabel.labelStep("On Page " + pageName)
     }
 }

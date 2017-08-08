@@ -11,14 +11,18 @@ import VSMobileCenterExtensions
 class AddNotePage : BasePage {
     
     //queries
-    var textView : XCUIElement?
-    var backButton : XCUIElement?
-    var switchButton : XCUIElement?
-    var sliderView : XCUIElement?
-    var pickerView : XCUIElement?
+    var textView : XCUIElement!
+    var backButton : XCUIElement!
+    var switchButton : XCUIElement!
+    var sliderView : XCUIElement!
+    var pickerView : XCUIElement!
     
-    init() {
-        super.init(trait: XCUIApplication().navigationBars["Note"].buttons["Notes"])
+    override var Trait: XCUIElement! {
+        return app.navigationBars["Note"].buttons["Notes"]
+    }
+    
+    override init() {
+        super.init()
         
         //using textViews class and index 0
         //textView = app.textViews.element(boundBy: 0)
@@ -36,8 +40,8 @@ class AddNotePage : BasePage {
     //page methods
     func addNote( textValue : String) -> Self {
         
-        textView?.tap()
-        textView?.typeText(textValue)
+        textView.tap()
+        textView.typeText(textValue)
         MCLabel.labelStep("Text entered : \(textValue)")
         
         return self
@@ -47,12 +51,12 @@ class AddNotePage : BasePage {
     func saveNote(){
         
         MCLabel.labelStep("Saving note")
-        backButton?.tap()
+        backButton.tap()
     }
     
     func changeSwitchState() -> Self{
         
-        switchButton?.tap()
+        switchButton.tap()
         MCLabel.labelStep("Switch Value changed")
         
         return self
@@ -61,7 +65,7 @@ class AddNotePage : BasePage {
     
     func changeSliderValue(newValue : CGFloat) -> Self {
         
-        sliderView?.adjust(toNormalizedSliderPosition: newValue)
+        sliderView.adjust(toNormalizedSliderPosition: newValue)
         MCLabel.labelStep("Slider Value set to : \(newValue)")
         
         return self
@@ -69,7 +73,7 @@ class AddNotePage : BasePage {
     
     func selectSuperHero(superheroName : String) -> Self {
         
-        pickerView?.adjust(toPickerWheelValue: superheroName)
+        pickerView.adjust(toPickerWheelValue: superheroName)
         MCLabel.labelStep("Picker View set to : \(superheroName)")
         return self
     }
