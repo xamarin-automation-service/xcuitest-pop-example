@@ -38,8 +38,8 @@ class AddNotePage : BasePage {
         pickerView = app.pickerWheels.element
     }
 
-    @discardableResult
     //page methods
+    @discardableResult
     func addNote( textValue : String) -> Self {
         
         textView.tap()

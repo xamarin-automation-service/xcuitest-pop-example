@@ -18,7 +18,6 @@ class HomePage : BasePage {
     private func noteAdded(_str: String) -> XCUIElement { return app.tables.staticTexts[_str] }
     private func tablesQuery(_str: String) -> XCUIElement { return app.tables.cells.element(boundBy: 0).buttons["Delete " + _str]}
     
-    
     override var Trait: XCUIElement! {
         return app.navigationBars["Notes"].staticTexts["Notes"]
     }

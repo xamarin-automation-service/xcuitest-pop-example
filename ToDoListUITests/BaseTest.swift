@@ -11,7 +11,7 @@ import VSMobileCenterExtensions
 
 class BaseTest : XCTestCase {
     
-    var app = XCUIApplication()
+    let app = XCUIApplication()
     
     override func setUp() {
         super.setUp()

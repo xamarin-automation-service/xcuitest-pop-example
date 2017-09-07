@@ -15,7 +15,6 @@ import XCTest
 class BasePage {
     
     let app = XCUIApplication()
-
     var Trait: XCUIElement! {
         return nil
     }
@@ -32,8 +31,8 @@ class BasePage {
     
     
     //waitForElement
-    func waitForElement(_ element: XCUIElement,  timeout: Double = 5) {
-  
+    func waitForElement(_ element: XCUIElement,  timeout: Double = 5, file: String = #file, line : UInt = #line) {
+        
         let testCase = XCTestCase()
         let exists:NSPredicate = NSPredicate.init(format:"exists == true")
         
@@ -42,11 +41,10 @@ class BasePage {
     }
     
     func waitForPage() {
-      
+
         if Trait == nil {
             fatalError("Trait not set for " + pageName)
         }
-        
         waitForElement(Trait)
     }
 }
