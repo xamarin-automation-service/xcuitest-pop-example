@@ -6,41 +6,47 @@
 //  Copyright © 2017 Sweekriti Satpathy. All rights reserved.
 //
 
-import XCTest
+
 import VSMobileCenterExtensions
 import CoreFoundation
+import XCTest
+
 
 class BasePage {
     
-    var app : XCUIApplication
-    var testCase = XCTestCase()
+    let app = XCUIApplication()
 
-    init(trait: XCUIElement) {
-        
-        app = BaseTest().getAppDriver()
-        assertOnPage(traitValue: trait)
+    var Trait: XCUIElement! {
+        return nil
     }
+    
+    var pageName: String! {
+        return String(describing: self).components(separatedBy: ".")[1]
+    }
+    
+    @discardableResult
+    init() {
+        waitForPage()
+        MCLabel.labelStep("On Page " + pageName)
+    }
+    
     
     //waitForElement
-    func waitForElement(of element: XCUIElement,  timeout: Double = 5, file: String = #file, line : UInt = #line) {
+    func waitForElement(_ element: XCUIElement,  timeout: Double = 5) {
+  
+        let testCase = XCTestCase()
+        let exists:NSPredicate = NSPredicate.init(format:"exists == true")
         
-        let predicate = NSPredicate(format: "exists == true")
-        testCase.expectation(for: predicate, evaluatedWith: element, handler: nil)
-        
-        testCase.waitForExpectations(timeout: timeout) { (error) in
-            guard error != nil else {return}
-            
-            let description = "\(element) does not exist after \(timeout) seconds."
-            self.testCase.recordFailure(withDescription: description, inFile: file, atLine: line, expected: true)
-            print(element.debugDescription)
-            
-        }
-        
+        testCase.expectation(for: exists, evaluatedWith: element, handler: nil)
+        testCase.waitForExpectations(timeout: TimeInterval(timeout), handler: nil)
     }
     
-    func assertOnPage(traitValue: XCUIElement) {
- 
-        XCTAssert(traitValue.exists)
-        MCLabel.labelStep("On Page " + String(describing: self).components(separatedBy: ".")[1])
+    func waitForPage() {
+      
+        if Trait == nil {
+            fatalError("Trait not set for " + pageName)
+        }
+        
+        waitForElement(Trait)
     }
 }

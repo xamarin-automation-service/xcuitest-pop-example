@@ -23,8 +23,4 @@ class BaseTest : XCTestCase {
         super.tearDown()
         app.terminate()
     }
-    
-    func getAppDriver() -> XCUIApplication {
-        return app
-    }
 }
