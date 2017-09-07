@@ -31,7 +31,7 @@ class BasePage {
     
     
     //waitForElement
-    func waitForElement(_ element: XCUIElement,  timeout: Double = 5, file: String = #file, line : UInt = #line) {
+    func waitForElement(_ element: XCUIElement,  timeout: Double = 5) {
         
         let testCase = XCTestCase()
         let exists:NSPredicate = NSPredicate.init(format:"exists == true")
